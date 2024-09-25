@@ -16,3 +16,4 @@ void insert_from_front(List *l, int data);
 int find_length(List * l);
 void reverse_display(List * l);
 void insert_using_rear_end(List *l, int data);
+int search(List *l, int key);

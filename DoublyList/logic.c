@@ -97,4 +97,17 @@ void insert_using_rear_end(List *l, int data){
         return;
 }
 
+int search(List *l, int key){
+    int i = 0;
+    Node * temp = l->head;
+    while(temp != NULL){
+        if(temp->data == key){
+            return i;
+        }
+        i++;
+        temp = temp->next;
+    }
+    return 0;
+}
+
     

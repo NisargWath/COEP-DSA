@@ -18,6 +18,5 @@ int main(){
     insert_using_rear_end(&l, 100);
     printf("LinkedList Element :-\t");
     display(&l);
-    
-
+    printf("Element found at index :- %d",search(&l, 11));
 }
