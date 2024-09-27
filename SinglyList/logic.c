@@ -147,9 +147,7 @@ link * mergeTwoLists(link *l1, link *l2){
         Node * temp1 = l1->head;
         Node * temp2 = l2->head;
 
-        // while(temp1 != NULL){
-        //     temp1 = temp1->next;
-        // }
+   
         while(temp2!= NULL){
             append(l1, temp2->data);
             temp2 = temp2->next;
