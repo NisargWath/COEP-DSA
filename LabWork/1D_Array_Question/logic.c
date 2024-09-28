@@ -7,7 +7,6 @@ void init(Array *a, int size){
     a->len = 0;
     a->size = size;
     return;
-
 }
 
 void append(Array *a, int value){
@@ -26,7 +25,6 @@ void display(Array * a){
     }
     printf("\n");
     return;
-
 }
 void insert_at_index(Array * a, int ind, int value){
 	if(ind > a->size || ind < 0) {
