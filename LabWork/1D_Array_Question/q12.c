@@ -21,15 +21,15 @@ void findNearestElements(Array *a, int size, int target, int *lesser, int *great
 }
 
 int main(){
-    Array * a;
-    init(a,10);
+    Array  a;
+    init(&a,10);
     int lesser, greater;
-    append(a,10);
-    append(a,45);
-    append(a,88);
-    append(a,3);
+    append(&a,10);
+    append(&a,45);
+    append(&a,88);
+    append(&a,3);
     int t = 12;
-    findNearestElements(a,a->len,t,&lesser,&greater);
+    findNearestElements(&a,a->len,t,&lesser,&greater);
     if (lesser != INT_MIN)
         printf("Nearest lesser element to %d: %d\n", t, lesser);
     else

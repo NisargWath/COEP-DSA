@@ -57,17 +57,17 @@ void even(Array *a){
 
 
 int main(){
-    Array * a;
-    init(a,10);
-    append(a,10);
-    append(a,-1);
-    append(a,3);
-    append(a,-12);
-    append(a,-2);
-    odd(a);
-    even(a);
-    postive(a);
-    negative(a);
+    Array  a;
+    init(&a,10);
+    append(&a,10);
+    append(&a,-1);
+    append(&a,3);
+    append(&a,-12);
+    append(&a,-2);
+    odd(&a);
+    even(&a);
+    postive(&a);
+    negative(&a);
 
 
 }

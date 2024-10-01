@@ -24,18 +24,18 @@ void duplicate(Array * a){
 
 }
 int main(){
-    Array * a;
-    init(a,10);
-    append(a,1);
-    append(a,12);
-    append(a,1);
-    append(a,13);
-    append(a,12);
+    Array  a;
+    init(&a,10);
+    append(&a,1);
+    append(&a,12);
+    append(&a,1);
+    append(&a,13);
+    append(&a,12);
     printf("Before");
-    display(a);
-    duplicate(a);
+    display(&a);
+    duplicate(&a);
     printf("After");
 
-    display(a);
+    display(&a);
 
 }

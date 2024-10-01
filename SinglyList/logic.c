@@ -144,7 +144,7 @@ void insert_Index(link * l, int ind, int value){
 }
 
 link * mergeTwoLists(link *l1, link *l2){
-        Node * temp1 = l1->head;
+
         Node * temp2 = l2->head;
 
    

@@ -21,14 +21,14 @@ void reverse(Array * a){
 }
 
 int main(){
-    Array * a;
-    init(a,10);
-    append(a,10);
-    append(a,45);
-    append(a,88);
-    append(a,3216);
-    display(a);
-    reverse(a);
-    display(a);
+    Array  a;
+    init(&a,10);
+    append(&a,10);
+    append(&a,45);
+    append(&a,88);
+    append(&a,3216);
+    display(&a);
+    reverse(&a);
+    display(&a);
 
 }

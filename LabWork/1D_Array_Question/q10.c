@@ -21,16 +21,16 @@ void palindrome(Array *a) {
 
 int main(){
     
-    Array *a;
-    init(a, 10);  
-    append(a, 1);
-    append(a, 2);
-    append(a, 5);
-    append(a, 2);
-    append(a, 1);
-    palindrome(a);
+    Array a;
+    init(&a, 10);  
+    append(&a, 1);
+    append(&a, 2);
+    append(&a, 5);
+    append(&a, 2);
+    append(&a, 1);
+    palindrome(&a);
 
     printf("Array: ");
-    display(a);
+    display(&a);
 
 }
