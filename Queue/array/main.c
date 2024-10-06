@@ -4,7 +4,7 @@
 
 
 int main(){
-    queue q;
+    queue  q;
     
 
     int size;
