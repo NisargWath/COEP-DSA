@@ -37,7 +37,7 @@ char peek(Stack *st) {
     return st->data[st->top];
 }
 
-int precedence(char op) {
+int c(char op) {
     if (op == '+' || op == '-') return 1;
     if (op == '*' || op == '/') return 2;
     return 0;
