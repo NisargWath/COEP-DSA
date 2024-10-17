@@ -5,7 +5,8 @@
 
 int main(){
     // list 1
-    link *  head =  init() ;
+    link *  head ;
+     init(head);
     
     append(head,10);
     append(head,11);
@@ -25,7 +26,8 @@ int main(){
 
     printf("\nList 2\n");
         // list 1
-    link *  head1 =  init() ;
+    link *  head1;
+     init(head1);
     
     append(head1,1);
     append(head1,11);

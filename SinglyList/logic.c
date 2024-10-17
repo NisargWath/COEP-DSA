@@ -4,10 +4,10 @@
 #include "List.h"
 
 
-link * init(){
-    link *  l = (link *)malloc(sizeof(link));
+void init(link * l){
+
     l->head = NULL;
-    return l;
+
 }
 
 void append(link * l, int data){
@@ -155,6 +155,5 @@ link * mergeTwoLists(link *l1, link *l2){
 
         return l1;
 }
-
 
 

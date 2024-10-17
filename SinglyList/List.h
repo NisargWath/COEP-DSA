@@ -9,7 +9,7 @@ typedef struct link{
 
 
 
-link * init();
+void  init(link * l);
 void append(link * l, int data);
 void display(link *l);
 int findlength(link *l);
