@@ -14,4 +14,6 @@ int maxele(Array * arr);
 int minele(Array * arr); 
 void reverse(Array * arr);
 void merge(Array * a, Array *b); 
+void mov_neg(Array * a);
+
 

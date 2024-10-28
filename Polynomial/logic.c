@@ -85,7 +85,9 @@ Poly add_poly(Poly *p, Poly *q) {
 
     return result;
 }
+
 Poly sub_poly(Poly *p, Poly *q) {
+
     Poly result;
     init(&result, p->len + q->len);
     int i = 0, j = 0;

@@ -1,11 +1,12 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<ctype.h>  
+#include <ctype.h>
+ 
 
 typedef struct {
     char *data;
     int size;
-    int top;
+    int top; 
 } Stack;
 
 void init(Stack *s, int size) {
@@ -37,7 +38,7 @@ char peek(Stack *st) {
     return st->data[st->top];
 }
 
-int c(char op) {
+int precedence(char op) {
     if (op == '+' || op == '-') return 1;
     if (op == '*' || op == '/') return 2;
     return 0;

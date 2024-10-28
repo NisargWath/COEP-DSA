@@ -97,7 +97,30 @@ void merge(Array *a, Array *b) {
     }
     display(a);
 }
+void mov_neg(Array * a){
+    Array * c, *b;
+    init(c,20);
+    init(b,20);
 
+    for(int i = 0;i<a->len;i++){
+        if(a->data[i] < 0){
+            append(c,a->data[i]);
+        }
+        else{
+            append(b,a->data[i]);
+        }
+    }
+    int i = 0, j = 0;
+    while(i<c->len){
+        a->data[i]  = c->data[i]; 
+        i++;
+    }
+    while(j<b->len){
+        a->data[i] = c->data[j];
+        j++;
+        i++;
+    }
 
+}
 
 

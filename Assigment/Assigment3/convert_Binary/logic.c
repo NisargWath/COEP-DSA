@@ -5,9 +5,9 @@
 
 
 int isEmpty(Stack s){
-    if(s.top == -1) return TRUE;
+    if(s.top == -1) return 1;
 
-    return FALSE;
+    return 0;
 }
 
 

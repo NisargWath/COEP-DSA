@@ -60,6 +60,7 @@ void divisible(Array *a, Array *b){
 }
 
 void mov_neg(Array *a) {
+    
     Array d, f;
     init(&d, 20);  
     init(&f, 20);  

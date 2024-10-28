@@ -7,7 +7,7 @@
 
 int main() {
     char expression[] =  "[()]{}{[()()]()}";
-    
+    printf("%s", expression);
     if (check(expression)) {
         printf("True\n");
     } else {

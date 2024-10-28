@@ -3,7 +3,7 @@
 #include "header.h"
 
 int main(){
-    char infix[100] = "(A+B)/C-D^E*F";
+    char infix[100] = "A+B/C*(D+C)-F";
     char postfix[100]; 
     infixToPostfix(infix,postfix);
     printf("Post Expression %s\n", postfix);
