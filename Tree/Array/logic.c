@@ -70,3 +70,27 @@ void destroyTree(Node * tr){
     tr->len = 0;
 }
  
+
+int count_leaf(Node * tr, int i){
+    if(i>=tr->len || tr->data[i] == -1)
+        return 0;
+    
+    if( (2*i+1 >= tr->len || tr->data[2*i+1] == -1)  &&  (2*i+2 >= tr->len || tr->data[2*i+2] == -1) ){
+        return 1;
+    }
+    return count_leaf(tr,2*i+1) + count_leaf(tr, 2*i+2);
+}
+int count_nonleaf(Node * tr){
+    return height(tr,0) - count_leaf(tr,0);
+}
+
+
+int height(Node *tr, int i) {
+    if (i >= tr->len || tr->data[i] == -1)  // Base case for null nodes
+        return -1;
+
+    int leftHeight = height(tr, 2 * i + 1);
+    int rightHeight = height(tr, 2 * i + 2);
+
+    return 1 + ((leftHeight > rightHeight) ? leftHeight : rightHeight);
+}
