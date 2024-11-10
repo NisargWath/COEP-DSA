@@ -93,6 +93,7 @@ int search(Tree * tr, int data){
     return 0;
 
 }
+
 void delete(Tree *t, int data) {
     Node *temp1 = t->root;
     Node *temp2 = NULL;
@@ -230,4 +231,15 @@ void post(Node *root) {
         Node *node = stack2[top2--];
         printf("%d ", node->data);
     }
+}
+
+
+
+
+// recursive 
+Node * recurHelper(Node * root, int data);
+Node * findHelper(Node * root);
+
+void recursiveDelete(Tree * tr,int data){
+    tr->root = recurHelper(tr->root,data);
 }

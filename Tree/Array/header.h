@@ -5,7 +5,6 @@ typedef struct Node{
 }Node;
 
 void init(Node * tr, int size);
-
 void insertNode(Node * tr, int data);
 void removeNode(Node * tr);
 void inordertraverse(Node * tr, int n);
@@ -15,3 +14,8 @@ void destroyTree(Node * tr);
 int count_leaf(Node * tr, int i); 
 int count_nonleaf(Node * tr);
 int height(Node * tr,int i);
+int inorder(Node * tr, int i);
+int preorder(Node * tr, int i);
+int postorder(Node * tr, int i);
+
+void deleteNode(Node *tr, int data);

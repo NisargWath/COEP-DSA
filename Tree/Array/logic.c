@@ -35,62 +35,41 @@ void insertNode(Node * tr, int data){
         printf("Tree is full, cannot insert %d\n", data);
     }
 }
-// void removeNode(Node * tr){
-    
-// }
-void inordertraverse(Node * tr, int i){
 
-        if(i>=tr->size|| tr->data[i] == -1) return;
 
-        inordertraverse(tr, 2* i+1);
-        printf("%d ", tr->data[i]);
-        inordertraverse(tr, 2* i+2);
 
-}
-void posttraverse(Node * tr, int i){
-    if(i>=tr->size|| tr->data[i] == -1) return;
-
-        printf("%d ", tr->data[i]);
-        posttraverse(tr, 2* i+1);
-        posttraverse(tr, 2* i+2);
-}
-void pretraverse(Node * tr, int i){
-    if(i>=tr->size|| tr->data[i] == -1) return;
-
-        pretraverse(tr, 2* i+1);
-        pretraverse(tr, 2* i+2);
-        printf("%d ", tr->data[i]);
-
-}
-
-void destroyTree(Node * tr){
-    free(tr->data);
-    tr->data =NULL;
-    tr->size = 0;
-    tr->len = 0;
-}
- 
-
-int count_leaf(Node * tr, int i){
-    if(i>=tr->len || tr->data[i] == -1)
-        return 0;
-    
-    if( (2*i+1 >= tr->len || tr->data[2*i+1] == -1)  &&  (2*i+2 >= tr->len || tr->data[2*i+2] == -1) ){
-        return 1;
+void deleteNode(Node *tr, int data) {
+    int i = 0;
+    while(i<tr->size && tr->data[i]!=data){
+        if(data<tr->data[i]){
+            i = 2*i+1;
+        }else{
+            i = 2*2+1;
+        }
     }
-    return count_leaf(tr,2*i+1) + count_leaf(tr, 2*i+2);
-}
-int count_nonleaf(Node * tr){
-    return height(tr,0) - count_leaf(tr,0);
-}
+    if(i>tr->len && tr->data[i] == -1){
+        return;
+    }
+    int last = tr->len;
+    tr->data[i] = tr->data[last];
+    tr->data[last] = -1;
+    tr->len--;
 
-
-int height(Node *tr, int i) {
-    if (i >= tr->len || tr->data[i] == -1)  // Base case for null nodes
-        return -1;
-
-    int leftHeight = height(tr, 2 * i + 1);
-    int rightHeight = height(tr, 2 * i + 2);
-
-    return 1 + ((leftHeight > rightHeight) ? leftHeight : rightHeight);
-}
+    int current  =i;
+    while(current<tr->len){
+        int left = 2 * current +1;
+        int right = 2 * current +2;
+        int swap  = current;
+        if(left<tr->len && tr->data[left]!=-1 && tr->data[left]>tr->data[swap]){
+            swap = left;
+        }
+        if(right<tr->len && tr->data[right]!=-1 && tr->data[right]>tr->data[swap]){
+            swap = right;
+        }
+        if(swap == current){
+            break;
+        }
+        int temp = tr->data[current];
+         tr->data[current] = tr->data[swap];
+         tr->data[swap] =temp;
+ 

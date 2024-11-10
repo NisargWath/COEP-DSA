@@ -26,3 +26,7 @@ int count(Node * tr); // This counts the number of nodes in the tree...
 void insert(Tree *tr, int data);
 int search(Tree * tr, int data);
 void delete(Tree *t, int data);
+
+void recursiveDelete(Tree * tr,int data);
+Node * recurHelper(Node * root, int data);
+Node * findHelper(Node * root);

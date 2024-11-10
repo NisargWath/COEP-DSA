@@ -12,7 +12,7 @@ void read_file_to_heap(char *filename, heap *h1) {
 
     int num;
     while (fscanf(file, "%d", &num) != EOF) {
-        insert_heap(h1, num);
+        insertInheap(h1, num);
     }
 
     fclose(file);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     char *filename = argv[1];
     int maxSize = 100;  
     heap h1;
-    init_heap(&h1, maxSize);
+    initHeap(&h1, maxSize);
 
     read_file_to_heap(filename, &h1);
     printf("Heap before sorting:\n");
@@ -36,7 +36,7 @@ int main(int argc, char *argv[]) {
     printf("Heap after sorting:\n");
     heap_sort(&h1);
 
-    // Free the allocated memory
+
     free(h1.data);
     return 0;
 }
