@@ -90,8 +90,7 @@ int search(Tree * tr, int data){
         }
     }
 
-    return 0;
-
+    return 0;t
 }
 
 void delete(Tree *t, int data) {
@@ -189,6 +188,7 @@ void preo(Node *tr){
     }
 }
 
+
 void in(Node * tr){
     if(tr == NULL) return;
     Node * stack[100];
@@ -225,7 +225,6 @@ void post(Node *root) {
         if (current->left) stack1[++top1] = current->left;
         if (current->right) stack1[++top1] = current->right;
     }
-
     // Print all elements from stack2
     while (top2 >= 0) {
         Node *node = stack2[top2--];
@@ -236,9 +235,40 @@ void post(Node *root) {
 
 
 
-// recursive 
-Node * recurHelper(Node * root, int data);
-Node * findHelper(Node * root);
+// recursive  Delete
+Node * findHelper(Node * root){
+    while(root->left!=NULL){
+        root = root->left;
+    }
+    return root;
+}
+
+Node * recurHelper(Node * root, int data){
+    if(root == NULL) return root;
+
+    if(data<root->data){
+        root->left = recurHelper(root->left,data);
+    }
+    else if(data>root->data){
+        root->right = recurHelper(root->right,data);
+    }else{
+        if(root->left == NULL){
+            Node * temp = root->right;
+            free(root);
+            return temp;
+        }
+        else if(root->right == NULL){
+            Node * temp = root->left;
+            free(root);
+            return temp;
+        }
+
+        Node * temp = findHelper(root->right);
+        root->data = temp->data;
+        root->right = recurHelper(root->right, temp->data);
+    }
+    return root;
+}
 
 void recursiveDelete(Tree * tr,int data){
     tr->root = recurHelper(tr->root,data);

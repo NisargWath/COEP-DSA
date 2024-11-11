@@ -31,7 +31,7 @@ void Binary_Search(Array *a, int key) {
         int mid = low + (high - low) / 2;
         if (a->data[mid] == key) {
             printf("Element Found at %d place", mid);
-            return;  
+            return;   
         }
         if (a->data[mid] < key) {
             low = mid + 1;
@@ -60,5 +60,5 @@ void display(Array *a){
     for(int i = 0;i<a->len;i++){
         printf("%d ",a->data[i]);
     }
-    printf("\n");
+    printf("\n"); 
 }

@@ -24,7 +24,7 @@ int parent(int index){
 
 
 
-void insert_heap(heap *h1, int data){
+void max_heap(heap *h1, int data){
     if(h1->rear == h1->size-1) return;
 
     h1->rear++;
@@ -35,6 +35,19 @@ void insert_heap(heap *h1, int data){
         i = parent(i);
     }
 }
+void min_heap(heap *h1, int data){
+    if(h1->rear == h1->size-1) return;
+
+    h1->rear++;
+    h1->data[h1->rear] = data;
+    int i = h1->rear;
+    while(i>0 && h1->data[i] < h1->data[parent(i)]){
+        swaph(h1, i, parent(i));
+        i = parent(i);
+    }
+}
+
+
 void print_heap(heap  h1){
     for(int i = 0;i<=h1.rear;i++){
         printf("%d ", h1.data[i]);
@@ -43,34 +56,31 @@ void print_heap(heap  h1){
 }
 
 
-
 void heapify(heap *h1){
-    if(h1->rear==0 || h1->rear==-1) return;
+    if(h1->rear == -1 || h1->rear == h1->size-1) return;
     int i = 0;
-    while(i<=(h1->rear)){
-        int left = 2 * i + 1;
+    while(i<(h1->rear)){
+        int left = 2*i+1;
         int right = 2*i+2;
-        if(left > h1->rear){
-            return;
-        }
-        if(right>=h1->rear){
-            if(h1->data[i]< h1->data[left]){
-                swaph(h1,i, left);
-            }
-            return;
-        }
-        if(h1->data[left]> h1->data[right]){
-            swaph(h1,i, left);
-            i = left;
-        }else{
-            swaph(h1,i,right);
-            i =right;  
-        }
 
+        if(left>h1->rear) return;
+       int largets   = i;
+
+       if(h1->data[left]> h1->data[largets]){
+        largets = left;
+       }
+       if(right<=h1->rear && h1->data[right] >h1->data[largets] ){
+        largets = right;
+       }
+
+       if(largets != i){
+        swaph(h1,i,largets);
+        i = largets;
+       }else{
+        break;
+       }
     }
 }
-
-
 
 void delete_max(heap *h1){
     if(h1->rear==-1) return;
@@ -79,8 +89,9 @@ void delete_max(heap *h1){
     heapify(h1);
     return;
 }
+
 void heap_sort(heap *h1){
-    int k = h1->rear;
+    int k = h1->rear;r
     if(h1->rear ==-1) return;
 
     for(int i  = h1->rear; i>0;i--){
