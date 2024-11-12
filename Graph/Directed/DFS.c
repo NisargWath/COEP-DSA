@@ -75,7 +75,7 @@ void BFS(Graph* gp, int sIndex) {
     free(visited);
 }
 void DFS(Graph * gp, int sVertex){
-    int * visited  = (int *)malloc(gp->numVertices * sizeof(int));
+    int * visited  = calloc(gp->numVertices , sizeof(int));
     for(int i = 0;i<gp->numVertices;i++){
         visited[i] = 0;
     }
@@ -100,10 +100,46 @@ void DFS(Graph * gp, int sVertex){
     }
 free(visited);
 }
+
+int cyclic(Graph *gp, int sVertex) {
+    int *visited = calloc(gp->numVertices, sizeof(int));
+    int *parent = calloc(gp->numVertices, sizeof(int));
+    int stack[100];
+    int top = -1;
+    stack[++top] = sVertex; // Start with the source vertex
+    
+    while (top >= 0) {
+        int k = stack[top--];
+        
+        if (!visited[k]) {
+            visited[k] = 1;
+        }
+        
+        Node *temp = gp->adjlist[k];
+        while (temp) {
+            int adj = temp->vertices;
+            
+            if (!visited[adj]) {
+                stack[++top] = adj;
+                parent[adj] = k;
+            } else if (adj != parent[k]) {
+                free(visited);
+                free(parent);
+                return 1; // Cycle detected
+            }
+            temp = temp->next;
+        }
+    }
+    
+    free(visited);
+    free(parent);
+    return 0; // No cycle detected
+}
+
 int main() {
     // Allocate memory for the Graph structure
     Graph* graph = (Graph*)malloc(sizeof(Graph));
-    init(graph, 9);
+  init(graph, 9);
 
     addEdge(graph, 0, 1, 2);
     addEdge(graph, 0, 2, 4);
@@ -117,6 +153,9 @@ int main() {
     addEdge(graph, 6, 7, 5);
     addEdge(graph, 6, 8, 4);
     addEdge(graph, 7, 8, 4);
+    // Adding a cycle
+    addEdge(graph, 8, 0, 2);
+
 
     printf("Adjacency list of the graph:\n");
     printgraph(graph);
@@ -125,6 +164,7 @@ int main() {
     BFS(graph, 0);
     printf("\nBFS starting from vertex 0:\n");
     DFS(graph, 0);
+    printf("\n is cyclic or not %d ",cyclic(graph,0));
 
     // Free memory allocated for the graph
     for (int i = 0; i < graph->numVertices; i++) {
