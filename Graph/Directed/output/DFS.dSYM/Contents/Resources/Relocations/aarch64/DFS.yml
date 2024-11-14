@@ -1,0 +1,14 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/appleApple/Desktop/DSA/build/Graph/Directed/output/DFS'
+relocations:
+  - { offsetInCU: 0x26, offset: 0x26, size: 0x8, addend: 0x0, symName: _init, symObjAddr: 0x0, symBinAddr: 0x100003454, symSize: 0x8C }
+  - { offsetInCU: 0xC0, offset: 0xC0, size: 0x8, addend: 0x0, symName: _init, symObjAddr: 0x0, symBinAddr: 0x100003454, symSize: 0x8C }
+  - { offsetInCU: 0x10E, offset: 0x10E, size: 0x8, addend: 0x0, symName: _createNode, symObjAddr: 0x8C, symBinAddr: 0x1000034E0, symSize: 0x50 }
+  - { offsetInCU: 0x152, offset: 0x152, size: 0x8, addend: 0x0, symName: _addEdge, symObjAddr: 0xDC, symBinAddr: 0x100003530, symSize: 0xA0 }
+  - { offsetInCU: 0x1AE, offset: 0x1AE, size: 0x8, addend: 0x0, symName: _printgraph, symObjAddr: 0x17C, symBinAddr: 0x1000035D0, symSize: 0xE8 }
+  - { offsetInCU: 0x20A, offset: 0x20A, size: 0x8, addend: 0x0, symName: _BFS, symObjAddr: 0x264, symBinAddr: 0x1000036B8, symSize: 0x1DC }
+  - { offsetInCU: 0x2D0, offset: 0x2D0, size: 0x8, addend: 0x0, symName: _DFS, symObjAddr: 0x440, symBinAddr: 0x100003894, symSize: 0x1E4 }
+  - { offsetInCU: 0x388, offset: 0x388, size: 0x8, addend: 0x0, symName: _cyclic, symObjAddr: 0x624, symBinAddr: 0x100003A78, symSize: 0x204 }
+  - { offsetInCU: 0x437, offset: 0x437, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x828, symBinAddr: 0x100003C7C, symSize: 0x264 }
+...

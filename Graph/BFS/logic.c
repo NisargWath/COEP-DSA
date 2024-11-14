@@ -85,8 +85,6 @@ void BFS(Graph *g, int sVertex) {
     queue q;
     initQueue(&q, g->verticesNum);
     int *isvisited = (int *)calloc(g->verticesNum, sizeof(int));
-  
-
     isvisited[sVertex] = 1;
     enqueue(&q, sVertex);
     printf("%d ", sVertex);
